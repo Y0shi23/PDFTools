@@ -1,5 +1,5 @@
 import os
-import re
+
 from PyPDF4 import PdfFileMerger
 from PyQt6 import QtCore as qtc
 from PyQt6 import QtWidgets as qtw
@@ -16,8 +16,6 @@ class MergePDFs:
     self.one_file_only: Final[str] = [os.path.join(self.input_directory, f) for f in os.listdir(self.input_directory) if f.endswith('.pdf')]
     # ログ出力用
     self.log = ""
-    # 正規表現パターン
-    self.pattern: str = "(a)?[0-9]{1,4}\-[0-9]{1,4}\-([^\x01-\x7E]|[A-Z]|[a-z]|[ ])+\-(2020)\-(雇入|基本|深夜|(健保指定)?ドッ(ク|グ)|不明)"
 
   def __merge_pdfs(self, input_dir: str, new_pdf_name: str, textbox: qtw.QTextEdit) -> None:
     pdf_merger: PdfFileMerger = PdfFileMerger()
