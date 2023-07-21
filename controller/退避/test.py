@@ -1,0 +1,9 @@
+from typing import overload
+
+class Test:
+  @overload
+  def select_input_directory(self) -> None: ...
+  overload
+  def select_output_directory(self) -> None: ...
+  overload
+  def start_pdf_splitting(self) -> None: ...
